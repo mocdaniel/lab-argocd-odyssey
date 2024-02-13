@@ -1,0 +1,128 @@
+:root {
+  --slidev-theme-primary: #5d8392;
+  --header-gradient: linear-gradient(
+    45deg,
+    hsl(261deg 75% 52%) 0%,
+    hsl(264deg 76% 52%) 5%,
+    hsl(266deg 78% 53%) 11%,
+    hsl(269deg 80% 53%) 16%,
+    hsl(271deg 81% 53%) 21%,
+    hsl(274deg 83% 54%) 26%,
+    hsl(276deg 84% 54%) 32%,
+    hsl(278deg 86% 54%) 37%,
+    hsl(280deg 87% 54%) 42%,
+    hsl(282deg 89% 54%) 47%,
+    hsl(284deg 90% 54%) 53%,
+    hsl(286deg 91% 54%) 58%,
+    hsl(288deg 93% 54%) 63%,
+    hsl(290deg 94% 54%) 68%,
+    hsl(292deg 95% 53%) 74%,
+    hsl(294deg 96% 53%) 79%,
+    hsl(295deg 97% 52%) 84%,
+    hsl(297deg 98% 52%) 89%,
+    hsl(298deg 99% 51%) 95%,
+    hsl(300deg 100% 50%) 100%
+  ); 
+}
+
+#slide-content {
+ /* @apply bg-primary;*/
+  background-image: linear-gradient(
+    45deg,
+    rgba(0, 43, 63, 1) 0%,
+    rgba(0, 43, 65, 1) 42.65%,
+    rgba(2, 44, 72, 1) 58.02%,
+    rgba(4, 46, 83, 1) 68.96%,
+    rgba(7, 49, 100, 1) 77.82%,
+    rgba(11, 52, 122, 1) 85.31%,
+    rgba(14, 55, 141, 1) 90.22%, 
+    rgba(18, 58, 161, 1) 93.2%,
+    rgba(27, 65, 211, 1) 99.24%,
+    rgba(28, 66, 218, 1) 100%);
+}
+
+.gradient-text {
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.speaker-image {
+  @apply border-accent;
+}
+
+
+li::marker {
+  @apply text-tertiary;
+}
+
+strong, a {
+  @apply font-bold;
+  background: var(--header-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  /*background: var(--header-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
+  @apply text-white;
+  @apply font-bold max-w-fit;
+}
+
+:not(pre) > code {
+  @apply text-accent bg-code-bg px-1 py-0.5 rounded-md;
+}
+
+/* Special styles for certain layouts */
+
+.slidev-layout.cover {
+  @apply h-full grid;
+
+  h1 {
+    @apply text-6xl leading-20;
+  }
+
+  p {
+    @apply opacity-50 -my-0.5;
+  }
+}
+
+.slidev-layout.section {
+  background-image: -webkit-gradient(
+    linear,
+    2.52% 96.22%,
+    99.43% 1.88%,
+    color-stop(0, rgba(105, 42, 224, 1)),
+    color-stop(0.0202, rgba(92, 42, 205, 1)),
+    color-stop(0.0655, rgba(68, 42, 167, 1)),
+    color-stop(0.1145, rgba(47, 43, 135, 1)),
+    color-stop(0.1671, rgba(30, 43, 109, 1)),
+    color-stop(0.2247, rgba(16, 43, 88, 1)),
+    color-stop(0.2898, rgba( 7, 43, 74, 1)),
+    color-stop(0.3687, rgba(2, 43, 66, 1)),
+    color-stop(0.5, rgba(0, 43, 63, 1)),
+    color-stop(0.6329, rgba(0, 43, 66, 1)),
+    color-stop(0.7128, rgba(2, 45, 74, 1)),
+    color-stop(0.7787, rgba(5, 47, 88, 1)),
+    color-stop(0.837, rgba(8, 50, 109, 1)),
+    color-stop(0.8903, rgba(13, 54, 135, 1)),
+    color-stop(0.9399, rgba(19, 58, 167, 1)),
+    color-stop(0.9858, rgba(26, 64, 205, 1)),
+    color-stop(1, rgba(28, 66, 218, 1))
+  );
+
+  h1 {
+
+
+    @apply text-8xl;
+    @apply text-white;
+    
+    /* text shadow */
+    //text-shadow: black 7px 7px;
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+  }
+}

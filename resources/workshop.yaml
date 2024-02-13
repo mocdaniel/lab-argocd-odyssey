@@ -1,0 +1,47 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: "lab-argocd-odyssey"
+spec:
+  title: "ArgoCD Odyssey"
+  description: "Navigating from Basics to Brilliance"
+  url: https://github.com/mocdaniel/lab-argocd-odyssey
+  difficulty: beginner
+  duration: 3h
+  vendor: nws.netways.de
+  authors:
+    - Daniel Bodky
+  tags:
+    - gitops
+    - argocd
+    - kubernetes
+  publish:
+    image: "$(image_repository)/lab-argocd-odyssey-files:$(workshop_version)"
+  workshop:
+    files:
+      - image:
+          url: "$(image_repository)/lab-argocd-odyssey-files:$(workshop_version)"
+        includePaths:
+          - /workshop/**
+          - /exercises/**
+          - /README.md
+  session:
+    namespaces:
+      budget: medium
+    applications:
+      slides:
+        enabled: true
+      terminal:
+        enabled: true
+        layout: split
+      editor:
+        enabled: true
+      console:
+        enabled: false
+      docker:
+        enabled: false
+      registry:
+        enabled: false
+      vcluster:
+        enabled: true
+        version: "1.28"
