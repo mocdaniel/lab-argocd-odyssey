@@ -17,13 +17,6 @@ spec:
     - kubernetes
   publish:
     image: "$(image_repository)/lab-argocd-odyssey-files:$(workshop_version)"
-    files:
-      - directory:
-          path: .
-          includePaths:
-            - /workshop/**
-            - /exercises/**
-            - /README.md
   workshop:
     files:
       - image:

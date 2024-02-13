@@ -34,3 +34,4 @@ jobs:
         uses: vmware-tanzu-labs/educates-github-actions/publish-workshop@v6
         with:
           token: ${{secrets.GITHUB_TOKEN}}
+          path: ./educates

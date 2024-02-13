@@ -10,7 +10,7 @@
     "slidev": ">=0.19.3"
   },
   "scripts": {
-    "build": "slidev build slides.md -o ../resources/slides",
+    "build": "slidev build slides.md -o ../educates/resources/slides",
     "dev": "slidev example.md",
     "export": "slidev export example.md",
     "screenshot": "slidev export example.md --format png"
