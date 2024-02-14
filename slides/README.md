@@ -43,11 +43,12 @@ The speaker layout can be used by adding the following frontmatter to a slide:
 
 ```yaml
 layout: speaker
-image: /path/to/image  # optional
 twitter: your_twitter_handle  # optional
 github: your_github_handle  # optional
 linkedin: your_linkedin_handle  # optional
 ```
+
+In addition, you will need to provide an image in `public/profile.jpg`.
 
 #### Section
 

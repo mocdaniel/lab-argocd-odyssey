@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-nws",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "slidev-theme",
     "slidev"
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "slidev build slides.md -o ../educates/workshop/slides --base /slides/",
-    "dev": "slidev example.md",
+    "dev": "slidev slides.md",
     "export": "slidev export example.md",
     "screenshot": "slidev export example.md --format png"
   },
