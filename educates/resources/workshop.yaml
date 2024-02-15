@@ -27,7 +27,7 @@ spec:
           - /README.md
   session:
     namespaces:
-      budget: medium
+      budget: custom
     applications:
       slides:
         enabled: true
