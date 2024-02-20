@@ -1,5 +1,5 @@
 ---
-title: ArgoCD Odyssey: From Basics to Brilliance
+title: "ArgoCD Odyssey: From Basics to Brilliance"
 ---
 
 This workshop provides a thorough introduction to [ArgoCD](https://argoproj.github.io/cd),
@@ -34,4 +34,3 @@ state and progress are preserved across the different tabs.
 Codeblocks throughout this workshop are **executable**. You can run
 the contained code by simply **clicking the code block**. This
 will execute the code in the terminal on the right.
-
