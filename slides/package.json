@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.1.18",
-    "@slidev/cli": "^0.40.14"
+    "@slidev/cli": "^0.48.0-beta.5"
   },
   "//": "Learn more: https://sli.dev/themes/write-a-theme.html",
   "slidev": {
