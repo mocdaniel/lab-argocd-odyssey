@@ -40,8 +40,11 @@ title: Install ArgoCD with Helm
 command: |
   helm install -n argocd --create-namespace \
     argocd argo/argo-cd \
-    --set configs.params["server.insecure"]=true \
+    --set configs.params."server\.insecure"=true \
     --set server.ingress.enabled=true \
     --set server.ingress.tls=true \
     --set server.ingress.hostname=argocd-{{< param session_name >}}.{{< param ingress_domain >}}
 ```
+
+This will deploy ArgoCD to our clusters and make it securely available at
+[argocd-{{< param session_name >}}.{{< param ingress_domain >}}](argocd-{{< param session_name >}}.{{< param ingress_domain >}}) via HTTPS.
