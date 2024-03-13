@@ -35,33 +35,3 @@ Next to your **terminal**, you find buttons for a **Visual Studio Code**
 instance as well as this workshop's accompanying **slides**.
 Switch between the different tabs to access the different tools;
 state and progress are preserved across the different tabs.
-
-## Action Blocks
-
-Throughout this workshop, there will be different **blocks** of content
-you can interact with.
-Most action blocks will be **executable**. The signifier
-for this feature is the running stick figure.
-You can run the contained code by simply **clicking the code block**. This
-will execute the code in the terminal on the right.
-
-```terminal:execute
-prefix: Run
-title: Greet ArgoCD
-command: echo "Hello, ArgoCD!"
-```
-
-Other blocks will be copyable like the one below.
-
-```workshop:copy-and-edit
-prefix: Copy
-title: Paste from clipboard
-text: |
-  kubectl cluster-info
-  kubectl get nodes
-  kubectl get pods --all-namespaces
-```
-
-There might be other kinds of actions, which aren't explained here -
-as a rule of thumb, the **title** of the block will signify the expected
-action which will happen upon clicking the block.

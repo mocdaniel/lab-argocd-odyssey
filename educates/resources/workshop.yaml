@@ -23,7 +23,6 @@ spec:
           url: "$(image_repository)/lab-argocd-odyssey-files:$(workshop_version)"
         includePaths:
           - /workshop/**
-          - /exercises/**
           - /README.md
   session:
     namespaces:
@@ -33,7 +32,7 @@ spec:
         enabled: true
       terminal:
         enabled: true
-        layout: split
+        layout: default
       editor:
         enabled: true
       console:

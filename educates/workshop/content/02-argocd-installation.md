@@ -34,9 +34,10 @@ We can see the chart `argo/argo-cd` listed, so let's install it.
 We will need to configure a few settings regarding connectivity of ArgoCD, so
 copy these values to a new file `argocd-values.yaml` in your editor:
 
-```workshop:copy
-prefix: Copy
-title: ArgoCD Helm values
+```editor:append-lines-to-file
+prefix: Editor
+title: Create ArgoCD Helm values file
+file: ~/argocd-values.yaml
 text: |
   ---
   configs:
@@ -64,9 +65,6 @@ command: |
     -f argocd-values.yaml
 ```
 
-This will deploy ArgoCD to our clusters and make it securely available at
-[https://argocd-{{< param session_name >}}.{{< param ingress_domain >}}](argocd-{{< param session_name >}}.{{< param ingress_domain >}}) via HTTPS.
-
 ## Accessing ArgoCD
 
 Upon deployment, ArgoCD will create an `admin` user with a **random password**
@@ -88,5 +86,5 @@ With our passwords extracted, let's switch to ArgoCD's login page by clicking be
 prefix: Open
 title: Open ArgoCD
 name: ArgoCD
-url: http://argocd-{{< param session_name >}}.{{< param ingress_domain >}}
+url: https://argocd-{{< param session_name >}}.{{< param ingress_domain >}}
 ```
