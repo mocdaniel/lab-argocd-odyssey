@@ -31,19 +31,37 @@ We can see the chart `argo/argo-cd` listed, so let's install it.
 
 ## Installing ArgoCD
 
-The following command installs ArgoCD and configures it in a way that allows
-us to reach it from without our clusters:
+We will need to configure a few settings regarding connectivity of ArgoCD, so
+copy these values to a new file `argocd-values.yaml` in your editor:
+
+```workshop:copy
+prefix: Copy
+title: ArgoCD Helm values
+text: |
+  ---
+  configs:
+    params:
+      server.insecure: true
+      server.x.frame.options: ""
+      server.content.security.policy: ""
+  server:
+    ingress:
+      enabled: true
+      tls: true
+      hostname: argocd-{{< param session_name >}}.{{< param ingress_domain >}}
+```
+
+Once we created our `argocd-values.yaml`, we can deploy the Helmchart:
 
 ```terminal:execute
 prefix: Run
-title: Install ArgoCD with Helm
+title: Install ArgoCD
 command: |
-  helm install -n argocd --create-namespace \
-    argocd argo/argo-cd \
-    --set configs.params."server\.insecure"=true \
-    --set server.ingress.enabled=true \
-    --set server.ingress.tls=true \
-    --set server.ingress.hostname=argocd-{{< param session_name >}}.{{< param ingress_domain >}}
+  cd ~/eduk8s
+  helm install argocd argo/argo-cd \
+    --namespace argocd \
+    --create-namespace \
+    -f argocd-values.yaml
 ```
 
 This will deploy ArgoCD to our clusters and make it securely available at

@@ -10,8 +10,9 @@ Before logging in for the first time, we need to fetch it from the cluster:
 prefix: Run
 title: Get ArgoCD admin password from Secret
 command: |
-  kubectl get -n argocd secret argocd-initial-admin-secret \
-    -o jsonpath={.data.password} | base64 -d | cat
+  kubectl get secret argocd-initial-admin-secret \
+    --namespace argocd \
+    --output jsonpath={.data.password} | base64 -d | cat
 ```
 
 With our passwords extracted, let's switch to ArgoCD's login page by clicking below:
