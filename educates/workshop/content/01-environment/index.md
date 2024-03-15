@@ -2,7 +2,7 @@
 title: Workshop Environment
 ---
 
-We already covered the **terminal**, **IDE**, and **Slides** already,
+We already covered the **terminal**, **IDE**, and **Slides**,
 but there's more functionality in this workshop environment: **action blocks**.
 
 Action blocks can **run code**, **copy text** to your clipboards, or **open links**
@@ -29,12 +29,5 @@ text: |
   echo "Hello < >!"
 ```
 
-One last thing before we get started *for real* - let's bin the [ArgoCD Docs](https://argo-cd.readthedocs.io)
-to have them at hand whenever we might need them:
-
-```dashboard:reload-dashboard
-prefix: Tab
-title: Pin the ArgoCD docs
-name: ArgoCD Docs
-url: https://argo-cd.readthedocs.io
-```
+There will be more kinds of blocks throughout the workshop - as a rule of thumb,
+clicking on them will normally trigger an action of some kind.

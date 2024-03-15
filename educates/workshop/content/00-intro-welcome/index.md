@@ -17,12 +17,11 @@ buttons at the top of this window.
 
 ## Terminal
 
-In addition to instructions, you are provided with two terminals to
-follow along with the workshop.
+In addition to instructions, you are provided with a terminal to
+follow along.
 
 In the terminal, you have access to many useful tools common to a Kubernetes
-environment or useful
-for this workshop, e.g.:
+environment or useful for this workshop, e.g.:
 
 - [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/)
 - [Helm](https://helm.sh)
@@ -31,7 +30,8 @@ for this workshop, e.g.:
 
 ## IDE and Slides
 
-Next to your **terminal**, you find buttons for a **Visual Studio Code**
+Next to your **terminal**, you will find tabs for a **Visual Studio Code**
 instance as well as this workshop's accompanying **slides**.
+
 Switch between the different tabs to access the different tools;
-state and progress are preserved across the different tabs.
+state and progress are preserved throughout your session.
