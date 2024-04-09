@@ -4,7 +4,7 @@ title: Creating Our First Application
 
 We will create our first application using the **ArgoCD UI** - later on we will see examples of using the **ArgoCD CLI** and its **CRDs**.
 
-## Creating an Application
+## Creating the Application
 
 Click on **New App** in the Applications view and fill in the following details - some of them can be picked from dropdowns in the form.
 
@@ -16,7 +16,7 @@ Click on **New App** in the Applications view and fill in the following details 
 |:--------|-----:|
 | **Application Name** | first-gitops-app |
 | **Project Name** | default |
-| **Repository URL** | [https://github.com/mocdaniel/lab-argocd-odyssey.git](https://github.com/mocdaniel/lab-argocd-odyssey.git) |
+| **Repository URL** | https://github.com/\<your-username\>/gitops-examples.git |
 | **Path** | first-gitops-app |
 | **Cluster URL** | https://kubernetes.default.svc |
 | **Namespace** | first-gitops-app |
@@ -33,7 +33,7 @@ The application will appear in ArgoCD's **Applications view**:
 It indicates clearly that it is **out of sync** (obviously, since we never
 synced before) and thus resources defined in Git are **missing**.
 
-## Syncing an Application
+## Syncing the Application
 
 Sync the application by clicking on **Sync**. After a short moment, the UI
 will update - **the sync failed!😱**.
@@ -57,4 +57,4 @@ This is not a problem though - ArgoCD can create namespaces for us on demand:
 2. Tick the box **Auto-create Namespace**
 3. Confirm by clicking on **Synchronize**
 
-After a few seconds, *most* resources should display a green tick - the sync is still failing, though. 😐
+After a few seconds, all resources should display a green tick - we successfully deployed our first application! 🥳
