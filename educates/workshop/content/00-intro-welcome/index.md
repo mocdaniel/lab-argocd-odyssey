@@ -23,10 +23,11 @@ follow along.
 In the terminal, you have access to many useful tools common to a Kubernetes
 environment or useful for this workshop, e.g.:
 
-- [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/)
-- [Helm](https://helm.sh)
-- [k9s](https://k9scli.io/)
-- [git](https://git-scm.com/)
+- [kubectl](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) - the Kubernetes CLI
+- [Helm](https://helm.sh) - a package manager for Kubernetes
+- [k9s](https://k9scli.io/) - a terminal UI for Kubernetes
+- [git](https://git-scm.com/) - a version control system
+- [gh](https://cli.github.com/) - the GitHub CLI
 
 ## IDE and Slides
 
