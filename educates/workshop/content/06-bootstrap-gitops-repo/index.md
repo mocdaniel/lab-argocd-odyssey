@@ -49,6 +49,7 @@ file: ~/gitops-examples/README.md
 ```
 
 The repository contains **multiple directories** with Kubernetes manifests to be consumed by ArgoCD.
+
 Notably, there seems to be a **first GitOps application** example in `first-gitops-app/`:
 
 ```terminal:execute
@@ -57,3 +58,5 @@ title: List the contents of first-gitops-app/
 command: |
   ls -l ~/gitops-examples/first-gitops-app/
 ```
+
+**Let's go on and deploy this application via ArgoCD!**

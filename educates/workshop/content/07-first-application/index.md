@@ -2,22 +2,26 @@
 title: Creating Our First Application
 ---
 
-It's time to create our first application!
+We will create our first application using the **ArgoCD UI** - later on we will see examples of using the **ArgoCD CLI** and its **CRDs**.
 
-For starters, we will go with a simple example from [this workshop's GitHub repository](https://github.com/mocdaniel/lab-argocd-odyssey).
+## Creating an Application
 
-## Create an Application
+Click on **New App** in the Applications view and fill in the following details - some of them can be picked from dropdowns in the form.
 
-Go ahead and create a new `Application` from the UI with the following settings:
+**Leave all other settings in their default states.**
 
-| Setting | Value |
-|:--------|:-----:|
-| **Application Name** | demo |
+---
+
+|  |  |
+|:--------|-----:|
+| **Application Name** | first-gitops-app |
 | **Project Name** | default |
 | **Repository URL** | [https://github.com/mocdaniel/lab-argocd-odyssey.git](https://github.com/mocdaniel/lab-argocd-odyssey.git) |
-| **Path** | examples/nginx-demo |
-| **Cluster URL** | in-cluster |
-| **Namespace** | nginx-demo |
+| **Path** | first-gitops-app |
+| **Cluster URL** | https://kubernetes.default.svc |
+| **Namespace** | first-gitops-app |
+
+---
 
 Once we configured our `Application`, we can confirm by clicking **Create** in
 the top.
@@ -29,23 +33,23 @@ The application will appear in ArgoCD's **Applications view**:
 It indicates clearly that it is **out of sync** (obviously, since we never
 synced before) and thus resources defined in Git are **missing**.
 
-## Sync an Application
+## Syncing an Application
 
 Sync the application by clicking on **Sync**. After a short moment, the UI
 will update - **the sync failed!😱**.
 
 ![Application in ArgoCD UI - sync failed](failed-demo-application.png)
 
-## Investigate the Error
+## Investigating the Error
 
 1. Navigate to the **Application Details view** by
 clicking the Application tile.
 2. Click on **Sync failed** to display details of the last sync attempt
-3. Find the culprit - we try to deploy to a **non-existing** namespace!
+3. Find the culprit - **we tried to deploy to a non-existing namespace!**
 
 ![Details of a failed sync attempt in ArgoCD UI](failed-sync-details.png)
 
-## Sync with Sync Options
+## Syncing with Sync Options
 
 This is not a problem though - ArgoCD can create namespaces for us on demand:
 
@@ -53,5 +57,4 @@ This is not a problem though - ArgoCD can create namespaces for us on demand:
 2. Tick the box **Auto-create Namespace**
 3. Confirm by clicking on **Synchronize**
 
-After a few seconds, all resources should display a green tick - we successfully
-deployed our first `Application` using ArgoCD! 🥳
+After a few seconds, *most* resources should display a green tick - the sync is still failing, though. 😐
