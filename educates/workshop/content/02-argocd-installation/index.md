@@ -4,7 +4,7 @@ title: Installing ArgoCD
 
 First, we are going to install ArgoCD. This can be done using **manifests**
 or the provided **Helmchart**. For the sake of easier configurability,
-we will use Helm for the installation.
+we will use [Helm](https://helm.sh) for the installation.
 
 ## Configuring the Repository
 
@@ -24,7 +24,7 @@ We can display the available Helmcharts in the `argo` repository like this:
 ```terminal:execute
 prefix: Run
 title: Display available Helmcharts
-command: helm search repo argo/
+command: helm search repo argo/argo-cd
 ```
 
 We can see the chart `argo/argo-cd` listed, so let's install it.
