@@ -74,7 +74,7 @@ command: |
 With our project created, we can now work towards our security goals:
 
 - allow only deployments *from* our forks of `gitops-examples`
-- allow only deployments *to* the namespace `cli-apps` in our cluster (`https://kubernetes.default.svc:6443`)
+- allow only deployments *to* the namespace `cli-apps` in our cluster (called `in-cluster` by ArgoCD)
 - allow *all* resources to be deployed (`--allow-cluster-resource */*`)
 
 We can allow a new **destination** to deploy from with `argocd proj add-destination`, followed by our project's name, a **cluster name**, and a **namespace**.
@@ -91,8 +91,9 @@ command: |
 We can add a new **source** with a similar command, `argocd proj add-source` - let's add our forks of `gitops-examples`:
 
 ```workshop:copy
-title: Copy&Paste
-command: |
+prefix: Copy&Paste
+title: Allow a new source for our project
+text: |
   argocd proj add-source cli-apps \
     https://github.com/<username>/gitops-examples.git
 ```
@@ -106,4 +107,4 @@ command: |
   argocd proj allow-cluster-resource cli-apps "*" "*"
 ```
 
-We now got a brand-new, reasonably scoped project to deploy more applications to!
+We now got a brand-new, reasonably scoped project to deploy more applications to

@@ -46,10 +46,17 @@ text: |
       server.x.frame.options: '""'             # Allow embedding
       server.content.security.policy: '""'     # Allow embedding
   server:
+    service:
+      annotations:
+        projectcontour.io/upstream-protocol.h2c: "https,443"
     ingress:
       enabled: true                            # Enable Ingress
       tls: true                                # Enable TLS for Ingress
       hostname: argocd-{{< param session_name >}}.{{< param ingress_domain >}}
+    ingressGrpc:
+      enabled: true                            # Enable Ingress
+      tls: true                                # Enable TLS for Ingress
+      hostname: grpc-argocd-{{< param session_name >}}.{{< param ingress_domain >}}
 ```
 
 Once we created our `argocd-values.yaml`, we can deploy the Helmchart:
