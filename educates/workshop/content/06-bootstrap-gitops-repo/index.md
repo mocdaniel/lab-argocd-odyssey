@@ -47,14 +47,6 @@ text: |
 
 ## Exploring the Example Repository
 
-The forked repository should be cloned to our environments by now - let's have a look in the editor.
-
-```editor:open-file
-prefix: Editor
-title: Open the example repository's README.md
-file: ~/gitops-examples/README.md
-```
-
 The repository contains **multiple directories** with Kubernetes manifests to be consumed by ArgoCD.
 
 Notably, there seems to be a **first GitOps application** example in `first-gitops-app/`:
@@ -64,6 +56,14 @@ prefix: Run
 title: List the contents of first-gitops-app/
 command: |
   ls -l ~/gitops-examples/first-gitops-app/
+```
+
+Let's have a closer look at what we're defining:
+
+```editor:open-file
+prefix: Editor
+title: Open first-gitops-app/deployment.yaml
+file: ~/gitops-examples/first-gitops-app/deployment.yaml
 ```
 
 ## Making Our First Commit
