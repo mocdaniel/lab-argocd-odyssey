@@ -13,7 +13,7 @@ prefix: Run
 title: Login to ArgoCD from the CLI
 command: |
   argocd login \
-    argocd-{{< param session_name >}}.{{< param ingress_domain >}} \
+    grpc-argocd-{{< param session_name >}}.{{< param ingress_domain >}} \
     --username admin \
     --password $ARGO_PASSWORD
 ```
@@ -29,3 +29,81 @@ command: |
   argocd app get argocd/first-gitops-app
   argocd proj list
   argocd proj get default
+```
+
+## Creating a New Project
+
+You might've thought *What's this project thing* just now - and rightfully so.
+
+Because ArgoCD **configures a default project** for us, we were able to start deploying our `first-gitops-app` right away, and it just worked.
+
+### A Project's Structure
+
+Let's look at the default project once more, this time from the Kubernetes side of things - internally, it is being represented by a **CRD**:
+
+```terminal:execute
+prefix: Run
+title: Display the project's YAML structure
+command: |
+  kubectl get appproject default \
+    -n argocd \
+    -o yaml
+```
+
+As we can see, the `default` project declares a few things:
+
+- **resources** we're allowed to deploy in this project
+- **destinations** we're allowed to deploy **to** in this project
+- **sources** we're allowed to deploy **from** in this project
+
+Notably, the `default` project allows us *basically anything*, as denoted by the asterisks: We're allowed to deploy anything *from* anywhere *to* anywhere.
+
+**That's not good** - let's create a new, more narrowly scoped project!
+
+### Defining a Project
+
+Using the CLI command `argocd proj create`, we can *imperatively* create a new project `cli-apps`.
+
+```terminal:execute
+prefix: Run
+title: Create a new project cli-apps
+command: |
+  argocd proj create cli-apps \
+    --description 'We use the CLI now!'
+```
+With our project created, we can now work towards our security goals:
+
+- allow only deployments *from* our forks of `gitops-examples`
+- allow only deployments *to* the namespace `cli-apps` in our cluster (`https://kubernetes.default.svc:6443`)
+- allow *all* resources to be deployed (`--allow-cluster-resource */*`)
+
+We can allow a new **destination** to deploy from with `argocd proj add-destination`, followed by our project's name, a **cluster name**, and a **namespace**.
+
+```terminal:execute
+prefix: Run
+title: Allow a new destination for our project
+command: |
+  argocd proj add-destination cli-apps \
+    --name in-cluster \
+    cli-apps
+```
+
+We can add a new **source** with a similar command, `argocd proj add-source` - let's add our forks of `gitops-examples`:
+
+```workshop:copy
+title: Copy&Paste
+command: |
+  argocd proj add-source cli-apps \
+    https://github.com/<username>/gitops-examples.git
+```
+
+Finally, we can allow all resources to be deployed to our project with `argocd proj allow-cluster-resource`:
+
+```terminal:execute
+prefix: Run
+title: Allow all resources to be deployed to cli-apps
+command: |
+  argocd proj allow-cluster-resource cli-apps "*" "*"
+```
+
+We now got a brand-new, reasonably scoped project to deploy more applications to!
