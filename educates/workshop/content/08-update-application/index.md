@@ -63,19 +63,6 @@ To confirm our changes, we can view the detected differences by clicking on the 
 
 ![ArgoCD diff view](diff.png)
 
-**After syncing** this change, we need to restart the NGINX deployment to read in the new configmap:
-
-```terminal:execute
-prefix: Run
-title: Restart the NGINX deployment
-command: |
-  kubectl rollout restart \
-    deployment/nginx \
-    --namespace first-gitops-app
-  clear
-  kubectl rollout status \
-    deployment/nginx \
-    --namespace first-gitops-app
-```
-
 That's it - we just improved our NGINX deployment to show the Argo mascot!
+
+Empty your browser's cache and reload the NGINX page with `ALT+SHIFT+R` and you should see the Argo mascot greeting you.
