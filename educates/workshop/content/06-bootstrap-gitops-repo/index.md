@@ -96,20 +96,6 @@ title: Open first-gitops-app/ingress.yaml
 file: ~/gitops-examples/first-gitops-app/ingress.yaml
 ```
 
-**Looking good!**
-
-### Configuring Git
-
-Before we can **commit** our changes, we need to tell git about our identity by setting a **name** and **email**:
-
-```workshop:copy
-prefix: Copy&Paste
-title: Configure your git client
-text: |
-  git config --global user.name "your-name-here"
-  git config --global user.email "your-email-here"
-```
-
 ### Commiting and Pushing Our Changes
 
 As a last step, to get our changes onto GitHub for ArgoCD to read them, we need to **commit and push**:
