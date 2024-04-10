@@ -11,4 +11,4 @@ tar xzvf /tmp/gh.tar.gz -C /tmp
 mv /tmp/gh_2.47.0_linux_amd64/bin/gh /home/eduk8s/bin/
 
 # source autocompletion
-source <(gh completion -s bash)
+gh completion -s bash >> $HOME/.bashrc

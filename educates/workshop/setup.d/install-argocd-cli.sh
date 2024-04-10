@@ -8,4 +8,4 @@ curl -sLo /home/eduk8s/bin/argocd https://github.com/argoproj/argo-cd/releases/d
 chmod 755 /home/eduk8s/bin/argocd
 
 # source autocompletion
-source <(argocd completion bash)
+argocd completion bash >> $HOME/.bashrc
