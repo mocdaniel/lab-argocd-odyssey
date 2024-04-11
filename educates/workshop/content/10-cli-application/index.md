@@ -2,8 +2,8 @@
 title: Creating Applications from the CLI
 ---
 
-Now that we have created a new project, we are going to deploy [podinfo](https://github.com/stefanprodan/podinfo),
-a demo application for cloud-native practises.
+Now that we have created a new project, we are going to deploy [Podinfo](https://github.com/stefanprodan/podinfo),
+a demo application for cloud-native practices.
 
 Throughout this section, we'll look at a few new concepts within ArgoCD:
 
@@ -25,13 +25,7 @@ Podinfo is available as Helmchart, which allows us to
 
 Similar to `argocd proj create`, we can add a new application with `argocd app create` - there's just a *few* more parameters to choose from (145 to be precise).
 
-Luckily enough, we can look at the CLI's help output to find examples for all the different deployment methods:
-
-- deploying manifests
-- deploying with Jsonnet
-- deploying with Helm
-- deploying with Kustomize
-- deploying with custom plugins
+Luckily enough, we can look at the CLI's help output to find examples for deploying Helmcharts:
 
 ```terminal:execute
 prefix: Run
@@ -57,6 +51,7 @@ prefix: Copy&Paste
 title: Forge the argocd app create command
 text: |
   argocd app create podinfo \
+    --project \
     --repo \
     --helm-chart \
     --revision \
@@ -73,16 +68,51 @@ text: |
 - `--sync-policy auto` so our application **syncs and (re-)deploys** Podinfo **automatically** as soon as it registers changes to the source Helmchart.
 {{< /note >}}
 
-Once created, we can check the state of our Podinfo Application:
+Once created, we can check the state of our `podinfo` Application:
 
 ```terminal:execute
 prefix: Run
 title: Check the state of the Podinfo Application
 command: |
-  argocd app get podinfo/podinfo
+  argocd app get argocd/podinfo
 ```
 
 
 ### Passing Values to our Helm Application
 
-If we have another look at our created
+One of the advantages of Helmcharts opposed to Kubernetes manifests is the deployment's easy configurability:
+
+You can pass so-called **values** that can define anything from the number of replicas to additional labels and annotations or FQDN of an Ingress resource.
+
+Let's update our `podinfo` application to also deploy an Ingress object so we can reach it over the web, similar to our `first-gitops-app` application. We can do so by passing the values below to the `argocd app set` command.
+
+For a list of all configurable values of the Podinfo Helmchart, have a look [at the GitHub repository](https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml).
+
+
+| | |
+|:--|--:|
+|`replicaCount`|2|
+|`ui.message`|"Podinfo + ArgoCD = ✨Demo Time✨"|
+|`ingress.enabled`|true|
+|`ingress.className`|contour|
+|`ingress.hosts[0].host`|podinfo-{{< param session_name >}}.{{< param ingress_domain >}}|
+|`ingress.hosts[0].paths[0].pathType`|ImplementationSpecific|
+|`ingress.hosts[0].paths[0].path`|"/"|
+
+Let's update the app - it should sync automatically and take the new settings into account, as initially defined above.
+
+```terminal:execute
+prefix: Run
+title: Update the podinfo Application
+command:
+  argocd app set argocd/podinfo \
+    --helm-set replicaCount=2 \
+    --helm-set ui.message="Podinfo + ArgoCD = ✨Demo Time✨" \
+    --helm-set ingress.enabled=true \
+    --helm-set ingress.className=contour \
+    --helm-set ingress.hosts[0].host=podinfo-{{< param session_name >}}.{{< param ingress_domain >}} \
+    --helm-set ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
+    --helm-set ingress.hosts[0].paths[0].path="/"
+```
+
+The newly created Ingress should be visible in the ArgoCD UI almost immediately - click the link to Podinfo's webpage and be greeted by yet another cute mascot applauding you and your GitOps feats. 😉

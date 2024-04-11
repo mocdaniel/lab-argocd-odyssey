@@ -88,14 +88,14 @@ command: |
     podinfo
 ```
 
-We can add a new **source** with a similar command, `argocd proj add-source` - let's add our forks of `gitops-examples`:
+We can add a new **source** with a similar command, `argocd proj add-source` - let's add an **repository** withing GitHub's **OCI registry** (we'll use it in the next step):
 
-```workshop:copy
-prefix: Copy&Paste
+```terminal:execute
+prefix: Run
 title: Allow a new source for our project
-text: |
+command: |
   argocd proj add-source cli-apps \
-    ghcr.io/stefanprodan/charts/podinfo
+    ghcr.io/stefanprodan/charts
 ```
 
 Finally, we can allow all resources to be deployed to our project with `argocd proj allow-cluster-resource`:
