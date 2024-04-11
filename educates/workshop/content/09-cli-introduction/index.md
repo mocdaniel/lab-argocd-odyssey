@@ -71,10 +71,10 @@ command: |
   argocd proj create cli-apps \
     --description 'We use the CLI now!'
 ```
-With our project created, we can now work towards our security goals:
+With our project created, we can now work towards our security goals and prepare the project for our next application:
 
-- allow only deployments *from* our forks of `gitops-examples`
-- allow only deployments *to* the namespace `cli-apps` in our cluster (called `in-cluster` by ArgoCD)
+- allow only deployments *from* the OCI registry `ghcr.io/stefanprodan/charts/podinfo`
+- allow only deployments *to* the namespace `podinfo` in our cluster (called `in-cluster` by ArgoCD)
 - allow *all* resources to be deployed (`--allow-cluster-resource */*`)
 
 We can allow a new **destination** to deploy from with `argocd proj add-destination`, followed by our project's name, a **cluster name**, and a **namespace**.
@@ -85,7 +85,7 @@ title: Allow a new destination for our project
 command: |
   argocd proj add-destination cli-apps \
     --name in-cluster \
-    cli-apps
+    podinfo
 ```
 
 We can add a new **source** with a similar command, `argocd proj add-source` - let's add our forks of `gitops-examples`:
@@ -95,7 +95,7 @@ prefix: Copy&Paste
 title: Allow a new source for our project
 text: |
   argocd proj add-source cli-apps \
-    https://github.com/<username>/gitops-examples.git
+    ghcr.io/stefanprodan/charts/podinfo
 ```
 
 Finally, we can allow all resources to be deployed to our project with `argocd proj allow-cluster-resource`:
@@ -107,4 +107,4 @@ command: |
   argocd proj allow-cluster-resource cli-apps "*" "*"
 ```
 
-We now got a brand-new, reasonably scoped project to deploy more applications to
+We now got a brand-new, reasonably scoped project to deploy more applications to.
