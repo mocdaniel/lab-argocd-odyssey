@@ -8,7 +8,7 @@ title: Intermission
 
 - ArgoCD is a GitOps engine consisting of multiple microservices
 - ArgoCD can be installed in multiple ways - we chose **Helm**
-- ArgoCD features a **UI**, as well as a **CLI** that communicates with the server via gRPC
+- ArgoCD features a **UI**, as well as a **CLI** that communicates with the server via **gRPC**
 - ArgoCD manages **Applications** in so-called **Projects**, and deploys from **RepoSources** to **Destinations**
 
 ## Applications from Manifests
@@ -25,9 +25,9 @@ title: Intermission
 
 ## Imperative vs. Declarative Setups
 
-While we looked at differnt ways of deploying Applications with ArgoCD (*Manifests* vs. *Helmcharts*, *UI* vs. *CLI*), we always acted **imperatively** - we told ArgoCD exactly what to do and how to do it.
+While we looked at different ways of deploying Applications with ArgoCD (*Manifests* vs. *Helmcharts*, *UI* vs. *CLI*), we always acted **imperatively** - we told ArgoCD exactly what to do and how to do it.
 
-While this may work just fine when we're the only ones operating our ArgoCD instances, it becomes messier when multiple operators are involved - what if someone misses a `helm-set` flag when updating an Application via CLI, or introduces a typo in the UI?
+While this may work just fine when we're the only ones operating our ArgoCD instances, it becomes messier when multiple operators are involved - what if someone misses a `--helm-set` flag when updating an Application via CLI, or introduces a typo in the UI?
 
 That's why there are concepts like Application CRDs and App-in-App in place to shift our setups to a (more) **declarative** approach.
 

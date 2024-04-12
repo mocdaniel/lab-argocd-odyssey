@@ -2,7 +2,7 @@
 title: Working with the CLI
 ---
 
-We now caught a first glimpse at the ArgoCD UI and how we can manage Applications from there.
+We now caught a first glimpse of the ArgoCD UI and how we can manage Applications from there.
 
 However, *ClickOps* isn't well suited for automated environments such as **CI/CD** pipelines, **E2E testing**, or large-scale scenarios.
 
@@ -17,6 +17,12 @@ command: |
     --username admin \
     --password $ARGO_PASSWORD
 ```
+
+{{< note >}}
+**Wait a minute, why the grpc-... URL?**
+
+ArgoCD's server terminates both, **TLS** and **gRPC** traffic on the same port. As this is something not every ingress controller supports, we end up with two ingress addresses in our environment - one for each protocol.
+{{< /note >}}
 
 We can then do a fast exploration of the existing resources - we should be able to spot our `first-gitops-app` deployed in the first part of the cluster:
 
@@ -56,7 +62,7 @@ As we can see, the `default` project declares a few things:
 - **destinations** we're allowed to deploy **to** in this project
 - **sources** we're allowed to deploy **from** in this project
 
-Notably, the `default` project allows us *basically anything*, as denoted by the asterisks: We're allowed to deploy anything *from* anywhere *to* anywhere.
+Notably, the `default` project allows us to do *basically anything*, as denoted by the asterisks: We're allowed to deploy anything *from* anywhere *to* anywhere.
 
 **That's not good** - let's create a new, more narrowly scoped project!
 
@@ -73,10 +79,6 @@ command: |
 ```
 With our project created, we can now work towards our security goals and prepare the project for our next application:
 
-- allow only deployments *from* the OCI registry `ghcr.io/stefanprodan/charts/podinfo`
-- allow only deployments *to* the namespace `podinfo` in our cluster (called `in-cluster` by ArgoCD)
-- allow *all* resources to be deployed (`--allow-cluster-resource */*`)
-
 We can allow a new **destination** to deploy from with `argocd proj add-destination`, followed by our project's name, a **cluster name**, and a **namespace**.
 
 ```terminal:execute
@@ -88,7 +90,7 @@ command: |
     podinfo
 ```
 
-We can add a new **source** with a similar command, `argocd proj add-source` - let's add an **repository** withing GitHub's **OCI registry** (we'll use it in the next step):
+We can add a new **source** with a similar command, `argocd proj add-source` - let's add a **repository** withing GitHub's **OCI registry** (we'll use it in the next step):
 
 ```terminal:execute
 prefix: Run
@@ -98,7 +100,7 @@ command: |
     ghcr.io/stefanprodan/charts
 ```
 
-Finally, we can allow all resources to be deployed to our project with `argocd proj allow-cluster-resource`:
+Finally, we can allow-list all Kubernetes resources to be deployed to our project with `argocd proj allow-cluster-resource`:
 
 ```terminal:execute
 prefix: Run
@@ -107,4 +109,4 @@ command: |
   argocd proj allow-cluster-resource cli-apps "*" "*"
 ```
 
-We now got a brand-new, reasonably scoped project to deploy more applications to.
+We now got a brand-new, more reasonably scoped project to deploy more applications to.
