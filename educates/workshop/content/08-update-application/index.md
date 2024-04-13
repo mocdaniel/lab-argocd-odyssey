@@ -40,6 +40,7 @@ Then we need to **commit and push** our changes again:
 prefix: Run
 title: Commit and push Argo mascot
 command: |
+  clear
   cd ~/gitops-examples
   git add ./first-gitops-app
   git commit -m "Add Argo mascot"

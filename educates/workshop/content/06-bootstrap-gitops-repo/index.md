@@ -53,9 +53,9 @@ Notably, there seems to be a **first GitOps application** example in `first-gito
 
 ```terminal:execute
 prefix: Run
-title: List the contents of first-gitops-app/
+title: Examine gitops-examples/
 command: |
-  ls -l ~/gitops-examples/first-gitops-app/
+  tree ~/gitops-examples
 ```
 
 Let's have a closer look at what we're defining:

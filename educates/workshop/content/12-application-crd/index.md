@@ -12,7 +12,7 @@ We can have a first look at what this might look like by printing our `podinfo` 
 prefix: Run
 title: Inspect the podinfo Application
 command: |
-  kubectl get application podinfo-n argocd -o yaml
+  kubectl get application podinfo -n argocd -o yaml
 ```
 
 That's a bit much - let's focus on the `spec` part.

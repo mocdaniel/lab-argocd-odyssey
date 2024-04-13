@@ -12,6 +12,7 @@ That's why ArgoCD provides a fully-fletched CLI, which is already installed to o
 prefix: Run
 title: Login to ArgoCD from the CLI
 command: |
+  clear
   argocd login \
     grpc-argocd-{{< param session_name >}}.{{< param ingress_domain >}} \
     --username admin \
