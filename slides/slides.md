@@ -3,7 +3,7 @@ theme: ./
 twitter: d_bodky
 github: mocdaniel
 linkedin: in/daniel-bodky
-event: DevOpsDays Zürich 2024
+event: DevOpsDays Zurich 2024
 date: 17th of April 2024
 author: Daniel Bodky
 ---
@@ -43,9 +43,8 @@ layout: two-cols
 
 ## Brilliance
 
-- Secret Management
 - Bootstrapping Platforms
-- Advanced Topics
+- 'Multi-Everything'
 
 ::right::
 
