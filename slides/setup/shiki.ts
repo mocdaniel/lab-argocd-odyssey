@@ -1,10 +1,10 @@
 import { defineShikiSetup } from "@slidev/types";
 
-export default defineShikiSetup(async ({ loadTheme }) => {
+export default defineShikiSetup(() => {
   return {
-    theme: {
-      dark: await loadTheme("../../styles/tokyo-night.json"),
-      light: await loadTheme("../../styles/tokyo-night.json"),
+    themes: {
+      dark: 'tokyo-night',
+      light: 'tokyo-night',
     },
   };
 });
