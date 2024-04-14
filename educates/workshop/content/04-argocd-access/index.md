@@ -17,7 +17,7 @@ command: |
   echo $ARGO_PASSWORD
 ```
 
-With our passwords extracted, let's switch to ArgoCD's login page by clicking below:
+With our passwords extracted, we can switch to ArgoCD's login page by clicking below:
 
 ```dashboard:reload-dashboard
 prefix: Open

@@ -45,7 +45,7 @@ The second example looks good! It seems like all we need to pass is
 - the **destination Kubernetes server**
 
 Let's forge our `argocd app create` command, getting the missing information from
-[**Podinfo's GitHub repository**](https://github.com/stefanprodan/podinfo#helm):
+[**Podinfo's GitHub repository**](https://github.com/stefanprodan/podinfo#helm) and ArgoCD (e.g. via the Web UI):
 
 ```workshop:copy
 prefix: Copy&Paste
