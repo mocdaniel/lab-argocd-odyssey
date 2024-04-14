@@ -48,7 +48,7 @@
 }
 
 .speaker-image {
-  @apply border-accent;
+  @apply border-tertiary;
 }
 
 
@@ -142,5 +142,9 @@ h1 {
 .slidev-layout.speaker {
   h1 {
     @apply mb-24;
+  }
+
+  .slidev-icon {
+    @apply mr-1;
   }
 }

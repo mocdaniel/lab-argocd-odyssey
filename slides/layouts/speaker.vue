@@ -14,15 +14,15 @@
       <div class="flex flex-row justify-between w-fit gap-4 flex-grow items-center text-xl">
         <span v-if="$slidev.configs.twitter" class="gradient-text">
           <fa6-brands-square-x-twitter />
-          {{ $slidev.configs.twitter }}
+          <a :href="'https://x.com/' + $slidev.configs.twitter">{{ $slidev.configs.twitter }}</a>
         </span> 
         <span v-if="$slidev.configs.github" class="gradient-text">
           <fa6-brands-github />
-          {{ $slidev.configs.github }}
+          <a :href="'https://github.com/' + $slidev.configs.github">{{ $slidev.configs.github }}</a>
         </span>
         <span v-if="$slidev.configs.linkedin" class="gradient-text">
           <fa6-brands-linkedin />
-          {{ $slidev.configs.linkedin }}
+          <a :href="'https://linkedin.com/' + $slidev.configs.linkedin">{{ $slidev.configs.linkedin }}</a>
         </span>
       </div>
     </div>

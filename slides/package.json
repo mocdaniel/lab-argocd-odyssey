@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-nws",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "keywords": [
     "slidev-theme",
     "slidev"
@@ -16,11 +16,11 @@
     "screenshot": "slidev export example.md --format png"
   },
   "dependencies": {
-    "@slidev/types": "^0.40.14"
+    "@slidev/types": "^0.48.9"
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.1.18",
-    "@slidev/cli": "^0.40.14"
+    "@slidev/cli": "^0.48.9"
   },
   "//": "Learn more: https://sli.dev/themes/write-a-theme.html",
   "slidev": {
