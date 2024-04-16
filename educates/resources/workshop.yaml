@@ -44,3 +44,8 @@ spec:
       vcluster:
         enabled: true
         version: "1.28"
+        resources:
+          k3s:
+            memory: 600Mi
+          syncer:
+            memory: 200Mi
