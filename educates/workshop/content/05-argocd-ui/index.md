@@ -13,7 +13,7 @@ additional **filter options**.
 We can also **sync** or **refresh** all listed `Applications` in a bulk operation
 or **create** a new `Application`.
 
-We will get back to this view after we deployed a few applications!
+We will get back to this view after we deployed a few Applications!
 
 ## Settings
 

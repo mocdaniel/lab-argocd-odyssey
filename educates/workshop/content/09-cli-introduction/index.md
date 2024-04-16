@@ -12,8 +12,7 @@ That's why ArgoCD provides a fully-fletched CLI, which is already installed to o
 prefix: Run
 title: Login to ArgoCD from the CLI
 command: |
-  clear
-  argocd login \
+  clear && argocd login \
     grpc-argocd-{{< param session_name >}}.{{< param ingress_domain >}} \
     --username admin \
     --password $ARGO_PASSWORD
@@ -31,8 +30,7 @@ We can then do a fast exploration of the existing resources - we should be able 
 prefix: Run
 title: Explore the CLI functionalities
 command: |
-  clear
-  argocd app list
+  clear && argocd app list
   argocd app get argocd/first-gitops-app
   argocd proj list
   argocd proj get default
@@ -52,7 +50,7 @@ Let's look at the default project once more, this time from the Kubernetes side 
 prefix: Run
 title: Display the project's YAML structure
 command: |
-  kubectl get appproject default \
+  clear && kubectl get appproject default \
     -n argocd \
     -o yaml
 ```
@@ -91,7 +89,7 @@ command: |
     podinfo
 ```
 
-We can add a new **source** with a similar command, `argocd proj add-source` - let's add a **repository** withing GitHub's **OCI registry** (we'll use it in the next step):
+We can add a new **source** with a similar command, `argocd proj add-source` - let's add a **repository** from GitHub's **OCI registry** (we'll use it in the next step):
 
 ```terminal:execute
 prefix: Run
@@ -111,3 +109,14 @@ command: |
 ```
 
 We now got a brand-new, more reasonably scoped project to deploy more applications to.
+
+Let's have a final look before going on and deploying to it:
+
+```terminal:execute
+prefix: Run
+title: Review the clip-apps AppProject
+command: |
+  clear && kubectl get appproject cli-apps \
+    -n argocd \
+    -o yaml
+```

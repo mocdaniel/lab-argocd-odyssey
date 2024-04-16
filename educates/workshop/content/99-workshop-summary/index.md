@@ -17,12 +17,23 @@ Because we don't want (and shouldn't) upload our precious passwords to GitHub fo
 
 ### How to scale and/or federate ArgoCD
 
+Because ArgoCD needs to grow with your managed Application's landscape.
+
 - [**Official docs**](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/): Running ArgoCD in High Availability mode
 - [**Official docs**](https://argo-cd.readthedocs.io/en/stable/proposals/004-scalability-benchmarking/): ArgoCD Scalability Benchmarks
 - [**A comprehensive overview of ArgoCD architectures**](https://codefresh.io/blog/a-comprehensive-overview-of-argo-cd-architectures-2024/): A blog post by Codefresh about possible (federated) ArgoCD setups
 
 ### Securing ArgoCD
 
+Because nobody wants to be the one who left the doors wide open.
+
 - [**Official docs**](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/): The already mentioned security implications of `ApplicationSets`
 - [**Official docs**](https://argo-cd.readthedocs.io/en/stable/operator-manual/security/): Everything revolving around Security in ArgoCD
 - [**CNCF report**](https://www.cncf.io/blog/2023/04/21/argo-cd-end-user-threat-model-security-considerations-for-hardening-declarative-gitops-cd-on-kubernetes/): Argo CD end user threat model: security considerations for hardening declarative GitOps CD on Kubernetes
+
+### Notifying with ArgoCD 
+
+Because who needs sleep at night?
+
+- [**Official docs**](https://argo-cd.readthedocs.io/en/stable/operator-manual/notifications/): The Notifications overview
+- [**Integrating ArgoCD and Slack for Real-Time Notifications**](https://www.infracloud.io/blogs/integrating-argocd-slack-for-real-time-notifications/): a blog post featuring a beginning-to-end example of configuring ArgoCD notifications for Applications using Slack

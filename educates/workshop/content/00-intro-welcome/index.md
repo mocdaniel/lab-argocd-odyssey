@@ -28,6 +28,7 @@ environment or useful for this workshop, e.g.:
 - [k9s](https://k9scli.io/) - a terminal UI for Kubernetes
 - [git](https://git-scm.com/) - a version control system
 - [gh](https://cli.github.com/) - the GitHub CLI
+- [argocd](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/#argocd) - the ArgoCD CLI
 
 ## IDE and Slides
 

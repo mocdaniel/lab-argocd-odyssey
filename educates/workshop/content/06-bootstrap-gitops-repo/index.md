@@ -36,10 +36,10 @@ CLI will be deleted along with everything else you created.
 
 After successfully logging in, we can **fork and clone** the example repository:
 
-```workshop:copy
-prefix: Copy
+```terminal:execute
+prefix: Run
 title: Fork and clone the example repository
-text: |
+command: |
   gh repo fork mocdaniel/gitops-examples \
     --clone \
     --fork-name gitops-examples

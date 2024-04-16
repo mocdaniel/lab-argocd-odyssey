@@ -19,7 +19,7 @@ title: Intermission
 
 ## Applications from Helmcharts
 
-- Applications can be created from Helmcharts in both formats, .tar.gz **archives** and **OCI artifacts**
+- Applications can be created from Helmcharts in .tar.gz **archives**, **OCI artifacts**, or **git repositories**.
 - Applications can define ad-hoc **values** to override default behavior of Helmcharts
 - Applications can reference **value files** within a repository to use
 
@@ -29,6 +29,6 @@ While we looked at different ways of deploying Applications with ArgoCD (*Manife
 
 While this may work just fine when we're the only ones operating our ArgoCD instances, it becomes messier when multiple operators are involved - what if someone misses a `--helm-set` flag when updating an Application via CLI, or introduces a typo in the UI?
 
-That's why there are concepts like Application CRDs and App-in-App in place to shift our setups to a (more) **declarative** approach.
+That's why there are concepts like Application CRDs and App-of-Apps in place to shift our setups to a (more) **declarative** approach.
 
 So grab a coffee, take a short break, and keep going!

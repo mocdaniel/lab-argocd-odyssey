@@ -35,7 +35,7 @@ synced before) and thus resources defined in Git are **missing**.
 
 ## Syncing the Application
 
-Sync the application by clicking on **Sync**. After a short moment, the UI
+Sync the application by clicking on **Sync**, and confirm by clicking on **Synchronize** in the top. After a short moment, the UI
 will update - **the sync failed!😱**.
 
 ![Application in ArgoCD UI - sync failed](failed-demo-application.png)

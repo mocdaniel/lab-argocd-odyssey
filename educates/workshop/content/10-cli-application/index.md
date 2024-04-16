@@ -3,7 +3,7 @@ title: Creating Applications from the CLI
 ---
 
 Now that we have created a new project, we are going to deploy [Podinfo](https://github.com/stefanprodan/podinfo),
-a demo application for cloud-native practices.
+a demo application for cloud-native practices next.
 
 Throughout this section, we'll look at a few new concepts within ArgoCD:
 
@@ -17,13 +17,13 @@ Let's get right to it!
 
 Podinfo is available as Helmchart, which allows us to
 
-1. get the bundled manifests (either as **tar archive** or **OCI artifact**),
+1. get the bundled manifests (either as **tar archive**, **OCI artifact**, or **from git**),
 2. have their contents rendered by ArgoCD
 3. deploy them to our cluster without having to know or access the *actual* manifests.
 
 ### Creating Applications with the CLI
 
-Similarly to `argocd proj create`, we can add a new application with `argocd app create` - there's just a *few* more parameters to choose from (145 to be precise).
+Similarly to `argocd proj create`, we can add a new application with `argocd app create` - there's just a *few* more parameters to choose from (*145 to be precise*).
 
 Luckily enough, we can look at the CLI's help output to find examples for deploying Helmcharts:
 
@@ -31,8 +31,7 @@ Luckily enough, we can look at the CLI's help output to find examples for deploy
 prefix: Run
 title: Display examples to deploy Helm applications
 command: |
-  clear
-  argocd app create --help | grep "Create a Helm app" -A 1
+  clear && argocd app create --help | grep "Create a Helm app" -A 1
 ```
 
 The second example looks good! It seems like all we need to pass is
@@ -42,7 +41,7 @@ The second example looks good! It seems like all we need to pass is
 - the **helm chart**
 - the **revision**
 - the **destination namespace**
-- the **destination Kubernetes server**
+- the **destination Kubernetes server** or **name** (`--dest-name`)
 
 Let's forge our `argocd app create` command, getting the missing information from
 [**Podinfo's GitHub repository**](https://github.com/stefanprodan/podinfo#helm) and ArgoCD (e.g. via the Web UI):
@@ -65,7 +64,7 @@ text: |
 {{< note >}}
 **I added two things for you already:**
 
-- `sync-option CreateNamespace=true` so we don't get the same **sync error** as with our `first-gitops-app`.
+- `--sync-option CreateNamespace=true` so we don't get the same **sync error** as with our `first-gitops-app`.
 - `--sync-policy auto` so our application **syncs and (re-)deploys** Podinfo **automatically** as soon as it registers changes to the source Helmchart or Application definition.
 {{< /note >}}
 
@@ -75,7 +74,7 @@ Once created, we can check the state of our `podinfo` Application:
 prefix: Run
 title: Check the state of the Podinfo Application
 command: |
-  argocd app get argocd/podinfo
+  clear && argocd app get argocd/podinfo
 ```
 
 

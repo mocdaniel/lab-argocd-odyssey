@@ -58,7 +58,7 @@ We can extract a few key characteristics of ApplicationSets here:
 
 - ApplicationSets declare **generators** to provide values
 - Those values can then be consumed in the declared **template**
-- There are mechanisms in place to allow endusers to **overwrite** some of the **predefined attributes** of the generated Applications
+- There are mechanisms in place to allow end users to **overwrite** some of the **predefined attributes** of the generated Applications
 - There is a way to **control** the **deployment order** of generated Applications
 
 The most important part are the available **generators**, so let's have a second look.
@@ -71,19 +71,19 @@ We can inspect the available generators via `kubectl`:
 prefix: Run
 title: Display available ApplicationSet Generators
 command: |
-  kubectl explain applicationset.spec.generators
+  clear && kubectl explain applicationset.spec.generators
 ```
 
 Below is a short summary of their respective purpose:
 
-- `clusterDecisionResource`:
+- `clusterDecisionResource`: provides data about the clusters managed by ArgoCD
 - `clusters`: provides data about the clusters managed by ArgoCD
 - `git`: provides data about either directories or files within Git repositories
 - `list`: provides hardcoded values as defined in the ApplicationSet
 - `matrix`: provides all possible combinations of the values provided by two other generators
 - `merge`: merges the values provided by other generators
 - `plugin`: provides custom information, depending on implementation
-- `pullRequest`: provides information about a pull request on a SCMaaS
+- `pullRequest`: provides information about a pull request on an SCMaaS
 - `scmProvider`: provides information about repositories (e.g. within an organization) on an SCMaaS
 - `selector`: allows for post-selection of value sets provided by another generator
 
@@ -95,7 +95,7 @@ We are cluster operators for a **multi-tenant** cluster, where each tenant gets 
 
 **Monitoring** happens on a per-tenant basis, i.e. **every tenant** gets their own instances of [Prometheus](https://prometheus.io) and [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) deployed to one of their namespaces.
 
-To achieve this, we are going to create an ApplicationSet, **combining** two `generators` by using the `matrix` generator:
+To achieve this, we are going to create an ApplicationSet, **combining** two `generators` with the `matrix` generator:
 
 - `git` generator to **auto-discover applications** to install
 - `list` generator to **auto-discover hard-coded teams**
@@ -105,7 +105,7 @@ Thus, our ApplicationSet looks like this:
 ```editor:open-file
 prefix: Editor
 title: Open gitops-examples/monitoring-applicationset.yaml
-file: ~/gitops-examples/monitoring-applicationset.yaml
+file: ~/gitops-examples/monitoring-appset.yaml
 ```
 
 {{< danger >}}

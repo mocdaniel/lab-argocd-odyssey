@@ -20,7 +20,7 @@ command: |
 ```
 
 Sometimes it's more useful to copy text, e.g. because we will need to edit it
-to our needs:
+according to our needs:
 
 ```workshop:copy
 prefix: Copy
@@ -30,4 +30,4 @@ text: |
 ```
 
 There will be more kinds of blocks throughout the workshop - as a rule of thumb,
-clicking on them will normally trigger an action of some kind.
+clicking on them will normally trigger an action of some kind. Normally, the **prefix** of the action block's title line will give a clear indication of the **triggered action**.

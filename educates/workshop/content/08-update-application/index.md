@@ -40,8 +40,7 @@ Then we need to **commit and push** our changes again:
 prefix: Run
 title: Commit and push Argo mascot
 command: |
-  clear
-  cd ~/gitops-examples
+  clear && cd ~/gitops-examples
   git add ./first-gitops-app
   git commit -m "Add Argo mascot"
   git push
@@ -63,6 +62,8 @@ Once refreshed, we see the `nginx-configmap` item in the Application's overview 
 To confirm our changes, we can view the detected differences by clicking on the item - it conveniently displays our added `<img/>` tag as incoming changes.
 
 ![ArgoCD diff view](diff.png)
+
+Now that we confirmed that ArgoCD picked up on the right changes, we can go ahead and **sync** once more.
 
 That's it - we just improved our NGINX deployment to show the Argo mascot!
 

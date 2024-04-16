@@ -2,7 +2,7 @@
 title: The App-of-Apps Pattern
 ---
 
-**Applications managing Applications?** Sounds confusing at first, but makes a lot of sense, if you think about it:
+**Applications managing Applications?** Sounds confusing at first, but makes a lot of sense, if you think about the pros:
 
 - single entrypoint into the whole deployment
 - automated rollout, reconciliation and enforcement of multiple Applications
@@ -28,7 +28,7 @@ text: |
   spec:
     destination:
       namespace: first-gitops-app
-      server: https://kubernetes.default.svc
+      name: in-cluster
     project: default
     source:
       path: first-gitops-app
@@ -39,7 +39,9 @@ text: |
         - CreateNamespace=true
 ```
 
+{{< danger >}}
 Make sure to change the `repoUrl` entry in the new manifest to **match your fork** of the `gitops-examples` repository!
+{{< /danger >}}
 
 ```editor:append-lines-to-file
 prefix: Editor
@@ -54,7 +56,7 @@ text: |
   spec:
     destination:
       namespace: podinfo
-      server: https://kubernetes.default.svc
+      name: in-cluster
     project: cli-apps
     source:
       chart: podinfo
@@ -119,8 +121,7 @@ Once we are happy with out `parent-app`, we still need to push our `apps/` conte
 prefix: Run
 title: Push new Application manifests to git
 command: |
-  clear
-  cd ~/gitops-examples
+  clear && cd ~/gitops-examples
   git add .
   git commit -m "Adds app-of-apps example"
   git push -u origin main

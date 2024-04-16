@@ -12,7 +12,7 @@ We can have a first look at what this might look like by printing our `podinfo` 
 prefix: Run
 title: Inspect the podinfo Application
 command: |
-  kubectl get application podinfo -n argocd -o yaml
+  clear && kubectl get application podinfo -n argocd -o yaml
 ```
 
 That's a bit much - let's focus on the `spec` part.
@@ -47,6 +47,8 @@ command: |
 
 Next, we'll head over to the ArgoCD UI - it should look similar to this:
 
+![Screenshot of the OutOfSync podinfo Application view](drift.png)
+
 We can make sure the correct drift was detected by inspecting the `podinfo` Deployment's diff section:
 
 ![Screenshot of the podinfo Deployment diff view](podinfo-diff.png)
@@ -75,4 +77,4 @@ We just learned a very important thing:
 
 **ArgoCD can enforce the state of any Kubernetes resource it is managing.**
 
-This applies to normal, everyday resources like Services, Deployments, and Ingresses, but also to more specialized CRDs, and even **Applications themselves**. This opens up the way for a very interesting concept...
+This applies to normal, everyday resources like Services, Deployments, and Ingresses, but also to more specialized CRDs, and even **Applications themselves**, which opens up the way for a very interesting concept...
