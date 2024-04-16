@@ -104,7 +104,7 @@ Thus, our ApplicationSet looks like this:
 
 ```editor:open-file
 prefix: Editor
-title: Open gitops-examples/monitoring-applicationset.yaml
+title: Open gitops-examples/monitoring-appset.yaml
 file: ~/gitops-examples/monitoring-appset.yaml
 ```
 

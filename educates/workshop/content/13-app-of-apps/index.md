@@ -71,7 +71,7 @@ text: |
           - name: ingress.className
             value: contour
           - name: ingress.hosts[0].host
-            value: podinfo-educates-cli-w03-s001.192.168.1.104.nip.io
+            value: podinfo-{{< param session_name >}}.{{< param ingress_domain >}}
           - name: ingress.hosts[0].paths[0].path
             value: "/"
           - name: ingress.hosts[0].paths[0].pathType
